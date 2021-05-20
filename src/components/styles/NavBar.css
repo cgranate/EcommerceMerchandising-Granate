@@ -11,7 +11,6 @@ body{
 
 header{
     width: 100%;
-    padding-top: 20;
     border-bottom: 1px solid lightgrey;
     background-color: white;
 }
@@ -20,16 +19,14 @@ header nav{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10px;
 }
 
-header nav li{
-    margin: 2px 20px;
+header nav a{
+    margin: 20px;
     padding: 0 10px;
     list-style: none;
     text-transform: uppercase;
-}
-
-nav li a{
     text-decoration: none;
     color: black;
     font-family: 'Pontano Sans', sans-serif;
@@ -37,7 +34,7 @@ nav li a{
     width: 100%;
 }
 
-.logo-container img{
+header nav a img{
     width: 200px;
     height: 200px;
     display: inline;

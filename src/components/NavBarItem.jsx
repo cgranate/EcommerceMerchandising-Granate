@@ -1,17 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const NavBarItem = ({name, url}) => {
-    return (
-        <>
-            <li>
-                <a href={url}>{name}</a>
-            </li>
-        </>
+const NavBarItem = ({children, enlace}) => {
+    return(
+        <a href={enlace}>
+             {children}
+        </a>
     )
 }
 
-NavBarItem.propTypes = {
-    name: PropTypes.string.isRequired,
-}
 export default NavBarItem;
