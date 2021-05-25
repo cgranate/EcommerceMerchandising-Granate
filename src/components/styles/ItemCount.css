@@ -38,6 +38,10 @@ h3{
 }
 
 h4{
+    padding: 5px;
+}
+
+h5{
     color: gray;
     padding-bottom: 10px;
 }

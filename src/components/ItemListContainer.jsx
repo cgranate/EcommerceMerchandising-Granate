@@ -1,8 +1,9 @@
 import React from 'react'
+import ItemList from './ItemList.jsx'
 
-const ItemListContainer = ({saludo}) => {
+const ItemListContainer = () => {
     return (
-        saludo
+        <ItemList />
     )
 }
 

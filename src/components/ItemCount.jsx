@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./styles/ItemCount.css";
-import taza from "../assets/images/taza.jpg";
+import ItemList from "./ItemList.jsx";
 
-export default function App({stock, initial}) {
+export default function ItemCount({stock, initial}) {
   const [counter, setCounter] = useState(initial);
   const [error, setError] = useState("");
 
@@ -19,15 +19,10 @@ export default function App({stock, initial}) {
   };
 
   return (
-    <div className="counter-container">
-      <img src={taza} alt="taza" />
-      <h3>Taza Tigres Sueltos</h3>
       <div className="container">
         <button onClick={() => changeCounter(-1)}>-</button>
         <p>Cantidad: {counter}</p>
         <button onClick={() => changeCounter(1)}>+</button>
       </div>
-      <h4>Agregar al carrito</h4>
-    </div>
   );
 }
