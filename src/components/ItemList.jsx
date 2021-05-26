@@ -1,4 +1,5 @@
 import Item from "./Item"
+import { useState } from "react"
 import blanco from "../assets/images/blanco.jpg"
 import negro from "../assets/images/negro.jpg"
 import rojo from "../assets/images/rojo.jpg"
@@ -67,24 +68,30 @@ const productos = [
     }
 ];
 
-const fetch = () => new Promise((resolve, reject) => {
-    setTimeout(function () {
-        resolve(productos);
-    }, 2000);
-});
+export default function ItemList ({}){
+    const [productosVar, setProductos] = useState(); 
+    const fetch = () => new Promise((resolve, reject) => {
+        setTimeout(function () {
+            resolve(productos);
+        }, 2000);
+    });
 
-fetch().then(
-    function (value) {
-        console.log(value);
-    },
-    function (reason){
-        //rechazo
+    fetch().then(
+        function (value) {
+            console.log(value);
+            setProductos(value);
+        },
+        function (reason){
+            //rechazo
+        }
+    );
+    
+    if(productosVar == null){
+        return(
+        <p>Pagina Cargando</p>
+        )
+    }else{
+        return(
+        productosVar.map(producto => <Item prod={producto} />))
     }
-);
-
-const ItemList = () => {
-    return(
-    productos.map(producto => <Item prod={producto} />))
 }
-
-export default ItemList;
