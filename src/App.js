@@ -1,13 +1,13 @@
 import './App.css';
 import NavBar from './components/NavBar.jsx';
-import ItemListContainer from './components/ItemListContainer.jsx';
-import ItemCount from './components/ItemCount.jsx';
+import ItemDetailContainer from "./components/ItemDetailContainer.jsx";
+//import ItemListContainer from './components/ItemListContainer.jsx';
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <ItemListContainer />
+      <ItemDetailContainer />
     </div>
   );
 };
