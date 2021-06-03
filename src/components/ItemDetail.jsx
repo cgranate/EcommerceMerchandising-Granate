@@ -1,24 +1,88 @@
-import "./styles/ItemDetail.css";
-//import ItemCount from "./ItemCount";
+import "./styles/ItemDetail.css"
 import { useState } from "react";
+import { BrowserRouter as Router, Switch, Route, useParams } from "react-router-dom"
+import blanco from "../assets/images/blanco.jpg"
+import negro from "../assets/images/negro.jpg"
+import rojo from "../assets/images/rojo.jpg"
+import azul from "../assets/images/azul.jpg"
 import taza from "../assets/images/taza.jpg"
 import auriculares from "../assets/images/auriculares.jpg"
 import remerablanca from "../assets/images/remerablanca.jpg"
 import remeranegra from "../assets/images/remeranegra.jpg"
 
-const producto =     {
-    id: "taza",
-    nombre: "Taza Tigres Sueltos",
-    precio: 800, 
-    stock: 9,
-    url: taza
-}
+const productos = [
+    {
+        id: "blanco",
+        nombre: "Álbum Blanco",
+        categoria:"Albumes",
+        precio: 3200,
+        stock: 9,
+        url: blanco
+    },
+    {
+        id: "negro",
+        nombre: "Álbum Negro",
+        categoria:"Albumes",
+        precio: 3200,
+        stock: 12,
+        url: negro
+    },
+    {
+        id: "rojo",
+        nombre: "Álbum Rojo",
+        categoria:"Albumes",
+        precio: 3200, 
+        stock: 7,
+        url: rojo
+    },
+    {
+        id: "azul",
+        nombre: "Álbum Azul",
+        categoria:"Albumes",
+        precio: 3200, 
+        stock: 2,
+        url: azul
+    },
+    {
+        id: "taza",
+        nombre: "Taza Tigres Sueltos",
+        categoria: "Accesorios",
+        precio: 800, 
+        stock: 9,
+        url: taza
+    },
+    {
+        id: "auriculares",
+        nombre: "Headset Tigres Sueltos",
+        categoria: "Accesorios",
+        precio: 18000, 
+        stock: 10,
+        url: auriculares
+    },
+    {
+        id: "remerablanca",
+        nombre: "Remera blanca Tigres Sueltos",
+        categoria:"Ropa",
+        precio: 600, 
+        stock: 6,
+        url: remerablanca
+    },
+    {
+        id: "remera-negra",
+        nombre: "Remera negra Tigres Sueltos",
+        categoria:"Ropa",
+        precio: 600,
+        stock: 6,
+        url: remeranegra
+    }
+];
 
-export default function Item ({}){
+export default function Item (){
     const [productoVar, setProducto] = useState(); 
+    const params = useParams();
     const fetch = () => new Promise((resolve, reject) => {
         setTimeout(function () {
-            resolve(producto);
+            resolve(productos);
         }, 2000);
     });
 
@@ -26,8 +90,8 @@ export default function Item ({}){
         function (value) {
             console.log("este es el value")
             console.log(value);
-            setProducto(value);
-            
+            console.log(params.id);
+            value.map(producto => producto.id==params.id ? setProducto(producto) : "")            
         },
         function (reason){
             //rechazo
@@ -41,13 +105,13 @@ export default function Item ({}){
     }else{
     return (
             <>
-                <div class="container">
+                <div class="container-all">
                     <div class="grid second-nav">
                         <div class="column-xs-12">
                             <nav>
                                 <ol class="breadcrumb-list">
-                                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                                    <li class="breadcrumb-item"><a href="#">Merchandising</a></li>
+                                    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                                    <li class="breadcrumb-item"><a href="/merch">Merchandising</a></li>
                                     <li class="breadcrumb-item active">{productoVar.nombre}</li>
                                 </ol>
                             </nav>
@@ -65,7 +129,7 @@ export default function Item ({}){
                     <h1>{productoVar.nombre}</h1>
                     <h2>${productoVar.precio}</h2>
                     <div class="description">
-                    <p>¿Qué es mejor? ¿una taza aburrida o una de Tigres Sueltos? <br /> *Plot twist: ya sabés la respuesta*</p>
+                    <p>¿Qué es mejor? ¿Algo aburrido o un/a {productoVar.nombre}? <br /> *Plot twist: ya sabés la respuesta*</p>
                     </div>
                 <button class="add-to-cart">Añadir al carrito</button>
                 </div>

@@ -26,6 +26,10 @@ body{
 
 }
 
+.counter-container{
+    text-align: center;
+}
+
 .counter-container img{
     width: 100%;
     height: 100%;

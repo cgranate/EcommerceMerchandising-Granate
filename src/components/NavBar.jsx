@@ -7,14 +7,14 @@ const NavBar = () => {
     return(
             <header>
                 <nav>
-                    <NavBarItem children="inicio" enlace="google.com"/>
+                    <NavBarItem children="inicio" enlace="/"/>
                     <NavBarItem children="nosotros" enlace="google.com"/>
                     <NavBarItem children="redes sociales" enlace="google.com"/>
-                    <NavBarItem>
+                    <NavBarItem enlace="/">
                         <img src={logo} alt="logo de Tigres Sueltos"/>
                     </NavBarItem>
                     <NavBarItem children="álbumes" enlace="google.com"/>
-                    <NavBarItem children="merch" enlace="google.com"/>
+                    <NavBarItem children="merch" enlace="/merch"/>
                     <NavBarItem children="próximas fechas" enlace="google.com"/>
                     <CartWidget/> 
                 </nav>

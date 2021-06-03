@@ -12,6 +12,14 @@
 	 color: #888;
 	 background: #fff;
 	 text-rendering: optimizeLegibility;
+} 
+.container-all {
+	 margin: auto;
+	 padding: 0 1rem;
+	 max-width: 75rem;
+	 width: 100%;
+	 text-align: center;
+	 justify-content: center;
 }
  a {
 	 color: #888;
@@ -112,6 +120,8 @@
 	 transform: translateZ(0);
 	 transition: color 0.3s ease;
 	 letter-spacing: 0.0625rem;
+	 width: 30%;
+	 height: 100%;
 }
  .add-to-cart:hover::before {
 	 transform: scaleX(1);
@@ -129,12 +139,7 @@
 	 transform-origin: 0 50%;
 	 transition: transform 0.3s ease-out;
 }
- .container {
-	 margin: auto;
-	 padding: 0 1rem;
-	 max-width: 75rem;
-	 width: 100%;
-}
+
  .grid > [class*="column-"] {
 	 padding: 1rem;
 }
