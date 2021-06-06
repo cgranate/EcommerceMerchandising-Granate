@@ -6,9 +6,8 @@ import ItemListContainer from './components/ItemListContainer.jsx';
 function App() {
   return (
     <>      
-      <NavBar />
-
       <BrowserRouter>
+        <NavBar />
         <Switch>
           <Route exact path="/">
             <ItemListContainer />
@@ -24,6 +23,7 @@ function App() {
           </Route>
         </Switch>
       </BrowserRouter>
+      
     </>
   );
 };

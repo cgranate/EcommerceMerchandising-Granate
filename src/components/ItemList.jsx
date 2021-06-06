@@ -79,10 +79,12 @@ const productos = [
 ];
 
 function ProductPrint({valores,urlParams}){
-    console.log("vamos a imprimir el paramtero")
-    console.log(urlParams)
-    if(urlParams.id == undefined){
+    if(urlParams.id == undefined && urlParams !='home'){
         return (valores.map(producto => <Item prod={producto} />))
+    } else if(urlParams == "home"){
+        return (
+            valores.map(producto => producto.precio>=1000 ? <Item prod={producto}/> : "")
+            )
     }else{
         return (valores.map(producto => producto.categoria==urlParams.id ? <Item prod={producto}/> : ""))
     }
@@ -121,6 +123,7 @@ export default function ItemList ({}){
                 </div>
                 <Switch>
                     <Route path="/:categoria" children={<ProductPrint valores={productosVar} urlParams={params} />}></Route>
+                    <Route path="/" children={<ProductPrint valores={productosVar} urlParams={'home'} />}></Route>
                 </Switch>
             </Router>
         )
