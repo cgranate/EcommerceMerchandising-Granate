@@ -1,6 +1,7 @@
 import "./styles/ItemDetail.css"
-import { useState } from "react";
-import { BrowserRouter as Router, Switch, Route, useParams } from "react-router-dom"
+import { useState, useCallback } from "react";
+import { BrowserRouter as Router, Switch, Route, useParams, Link, useHistory } from "react-router-dom"
+import ItemCount from "./ItemCount.jsx"
 import blanco from "../assets/images/blanco.jpg"
 import negro from "../assets/images/negro.jpg"
 import rojo from "../assets/images/rojo.jpg"
@@ -78,19 +79,33 @@ const productos = [
 ];
 
 export default function Item (){
-    const [productoVar, setProducto] = useState(); 
+    const [productoVar, setProducto] = useState();
+    const [contador, setContador] = useState(1);
     const params = useParams();
+    const history = useHistory();
     const fetch = () => new Promise((resolve, reject) => {
         setTimeout(function () {
             resolve(productos);
         }, 2000);
     });
 
+
+    const handleCounterChange = useCallback ((counter)=>{
+        setContador(counter);
+    })
+
+    const changeRouteToCart = () =>{
+        let path = '/cart';
+        history.push(path)
+    }
+
+
+
     fetch().then(
         function (value) {
-            console.log("este es el value")
-            console.log(value);
-            console.log(params.id);
+            //console.log("este es el value")
+            //console.log(value);
+            //console.log(params.id);
             value.map(producto => producto.id==params.id ? setProducto(producto) : "")            
         },
         function (reason){
@@ -100,7 +115,7 @@ export default function Item (){
     
     if(productoVar == null){
         return(
-        <p>Pagina Cargando</p>
+        <p>Pagina cargando</p>
         )
     }else{
     return (
@@ -130,8 +145,9 @@ export default function Item (){
                     <h2>${productoVar.precio}</h2>
                     <div class="description">
                     <p>¿Qué es mejor? ¿Algo aburrido o un/a {productoVar.nombre}? <br /> *Plot twist: ya sabés la respuesta*</p>
-                    </div>
-                <button class="add-to-cart">Añadir al carrito</button>
+                </div>
+                <ItemCount stock = {productoVar.stock} initial={1} onChildClick={handleCounterChange} ></ItemCount>
+                <button class="add-to-cart" onClick={changeRouteToCart}>Terminar tu compra</button>
                 </div>
                 </div>
                 <div class="grid related-products">
