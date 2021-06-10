@@ -83,6 +83,7 @@ export default function Item (){
     const [contador, setContador] = useState(1);
     const params = useParams();
     const history = useHistory();
+    const [newButton, setNewButton] = useState([]);
     const fetch = () => new Promise((resolve, reject) => {
         setTimeout(function () {
             resolve(productos);
@@ -93,6 +94,10 @@ export default function Item (){
     const handleCounterChange = useCallback ((counter)=>{
         setContador(counter);
     })
+
+    const handleCartAdd = event =>{
+        setNewButton(<button class="add-to-cart" onClick={changeRouteToCart}>Terminar tu compra</button>)
+    }
 
     const changeRouteToCart = () =>{
         let path = '/cart';
@@ -146,8 +151,8 @@ export default function Item (){
                     <div class="description">
                     <p>¿Qué es mejor? ¿Algo aburrido o un/a {productoVar.nombre}? <br /> *Plot twist: ya sabés la respuesta*</p>
                 </div>
-                <ItemCount stock = {productoVar.stock} initial={1} onChildClick={handleCounterChange} ></ItemCount>
-                <button class="add-to-cart" onClick={changeRouteToCart}>Terminar tu compra</button>
+                <ItemCount stock = {productoVar.stock} isDetail={true} initial={1} onChildClick={handleCounterChange} onFinalClick={handleCartAdd} ></ItemCount>
+                {newButton}
                 </div>
                 </div>
                 <div class="grid related-products">

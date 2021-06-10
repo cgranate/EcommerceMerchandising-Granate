@@ -18,6 +18,24 @@ body{
     margin-top: 15px;
     margin-bottom: 15px;
 }
+.add-to-cart-count {
+    position: relative;
+    display: inline-block;
+    background: #3e3e3f;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 1.25rem 2.5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transform: translateZ(0);
+    transition: color 0.3s ease;
+    letter-spacing: 0.0625rem;
+    width: 30%;
+    height: 100%;
+    margin-bottom: 10px;
+}
 
 .container{
     display: flex;
