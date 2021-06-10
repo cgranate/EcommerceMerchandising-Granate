@@ -23,9 +23,7 @@ export default function Item ({prod}){
                         <h5>Agregar al carrito</h5>
                     </div>
                 </div> 
-                <Switch>
                     <Route exact path="/item/:producto.id" ></Route>
-                </Switch>
             </Router>
             </>
     )

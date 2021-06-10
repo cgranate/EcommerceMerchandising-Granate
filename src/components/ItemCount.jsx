@@ -42,8 +42,7 @@ function onAdd(){
         <p>Cantidad: {counter}</p>
         <button onClick={() => changeCounter(1)}>+</button>
       </div>
-      <button class="add-to-cart-count" onClick={() => onAdd()}>Añadir al Carrito</button>
-      <br></br>
+      <button className="add-to-cart-count" onClick={() => onAdd()}>Añadir al Carrito</button>
     </div>
       
   );

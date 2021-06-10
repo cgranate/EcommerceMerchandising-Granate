@@ -96,7 +96,7 @@ export default function Item (){
     })
 
     const handleCartAdd = event =>{
-        setNewButton(<button class="add-to-cart" onClick={changeRouteToCart}>Terminar tu compra</button>)
+        setNewButton(<button className="add-to-cart" onClick={changeRouteToCart}>Terminar tu compra</button>)
     }
 
     const changeRouteToCart = () =>{
@@ -125,55 +125,55 @@ export default function Item (){
     }else{
     return (
             <>
-                <div class="container-all">
-                    <div class="grid second-nav">
-                        <div class="column-xs-12">
+                <div className="container-all">
+                    <div className="grid second-nav">
+                        <div className="column-xs-12">
                             <nav>
-                                <ol class="breadcrumb-list">
-                                    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-                                    <li class="breadcrumb-item"><a href="/merch">Merchandising</a></li>
-                                    <li class="breadcrumb-item active">{productoVar.nombre}</li>
+                                <ol className="breadcrumb-list">
+                                    <li className="breadcrumb-item"><a href="/">Inicio</a></li>
+                                    <li className="breadcrumb-item"><a href="/merch">Merchandising</a></li>
+                                    <li className="breadcrumb-item active">{productoVar.nombre}</li>
                                 </ol>
                             </nav>
                         </div>
                 </div>
-                <div class="grid product">
-                <div class="column-xs-12 column-md-7">
-                    <div class="product-gallery">
-                        <div class="product-image">
-                            <img class="active" src={productoVar.url} />
+                <div className="grid product">
+                <div className="column-xs-12 column-md-7">
+                    <div className="product-gallery">
+                        <div className="product-image">
+                            <img className="active" src={productoVar.url} />
                         </div>
                     </div>
                 </div>
-                <div class="column-xs-12 column-md-5">
+                <div className="column-xs-12 column-md-5">
                     <h1>{productoVar.nombre}</h1>
                     <h2>${productoVar.precio}</h2>
-                    <div class="description">
+                    <div className="description">
                     <p>¿Qué es mejor? ¿Algo aburrido o un/a {productoVar.nombre}? <br /> *Plot twist: ya sabés la respuesta*</p>
                 </div>
                 <ItemCount stock = {productoVar.stock} isDetail={true} initial={1} onChildClick={handleCounterChange} onFinalClick={handleCartAdd} ></ItemCount>
                 {newButton}
                 </div>
                 </div>
-                <div class="grid related-products">
-                <div class="column-xs-12">
+                <div className="grid related-products">
+                <div className="column-xs-12">
                     <h3>También podría gustarte</h3>
                 </div>
-                <div class="container-others">
+                <div className="container-others">
                     <div>
                         <img src={auriculares} />
                         <h4>Auriculares</h4>
-                        <p class="price">$18.000</p>
+                        <p className="price">$18.000</p>
                     </div>
                     <div>
                         <img src={remerablanca} />
                         <h4>Remera blanca</h4>
-                        <p class="price">$600</p>
+                        <p className="price">$600</p>
                     </div>
                     <div>
                         <img src={remeranegra} />
                         <h4>Remera negra</h4>
-                        <p class="price">$600</p>
+                        <p className="price">$600</p>
                     </div>
                 </div>
                 </div>
