@@ -10,6 +10,7 @@ import taza from "../assets/images/taza.jpg"
 import auriculares from "../assets/images/auriculares.jpg"
 import remerablanca from "../assets/images/remerablanca.jpg"
 import remeranegra from "../assets/images/remeranegra.jpg"
+import { useCart } from "./CartProvider.jsx";
 
 const productos = [
     {
@@ -79,6 +80,8 @@ const productos = [
 ];
 
 export default function Item (){
+    const cart = useCart();
+
     const [productoVar, setProducto] = useState();
     const [contador, setContador] = useState(1);
     const params = useParams();
@@ -100,6 +103,7 @@ export default function Item (){
     }
 
     const changeRouteToCart = () =>{
+        cart.addItem(productoVar,contador);
         let path = '/cart';
         history.push(path)
     }

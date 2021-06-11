@@ -3,10 +3,13 @@ import NavBar from './components/NavBar.jsx';
 import ItemDetailContainer from "./components/ItemDetailContainer.jsx";
 import ItemListContainer from './components/ItemListContainer.jsx';
 import Cart from './components/Cart.jsx';
+import {CartProvider} from './components/CartProvider.jsx';
+
 
 function App() {
   return (
-    <>      
+    <>
+    <CartProvider>
       <BrowserRouter>
         <NavBar />
         <Switch>
@@ -27,6 +30,7 @@ function App() {
           </Route>
         </Switch>
       </BrowserRouter>
+    </CartProvider>
       
     </>
   );
